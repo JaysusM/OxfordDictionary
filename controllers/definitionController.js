@@ -10,23 +10,29 @@ const headers = {
 
 module.exports = {
   postGetWordDefinition : function(req, res) {
-    let word = req.body.searchBar;0
+    let word = req.body.searchBar;
+    if(word != '') {
     let webPage = api_base_url + '/entries/en/' + word.toLowerCase();
-    request(
+    return request(
       {
         url: webPage,
         headers: headers,
       },
       function(err, response, body) {
+        try {
         let definition = JSON.parse(body);
         let parsedDefinitions = definition.results[0].lexicalEntries[0].entries[0].senses;
         var definitionValues = [];
         for(var i =0; i < parsedDefinitions.length; i++) {
           definitionValues.push(parsedDefinitions[i].definitions[0]);
         }
-
-        res.render('index', {title: 'DefineIt!', word: word, definitions: definitionValues})
+        return res.render('index', {title: 'DefineIt! > ' + word, word: word, definitions: definitionValues});
+      } catch (e) {
+        return res.redirect('back');
+      }
       }
     );
+    }
+    return res.render('index', {title: 'DefineIt!', word: '', definitions: []});
   }
 }
