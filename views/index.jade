@@ -3,11 +3,10 @@ html
     title= title
   body
     div(name='searcher')
-      form(action='/search', method='POST')
+      form(action='/', method='POST')
         input(type='text', name='searchBar', placeholder='Word')
         input(type='submit' name='searchButton' value='Search')
     div(name='definition')
-      h1(name='word')
-        | Word Definition
-      h3(name='definition')
-        | Definition: example, example, example
+      h1(name='word')= word
+      each item in definitions
+        h4(class='definition')= "- " + item
