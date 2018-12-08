@@ -1,12 +1,16 @@
 html
   head
     title= title
+    link(rel='stylesheet', type='text/css', href='stylesheets/style.css')
   body
-    div(name='searcher')
+    div(class='searcher')
+      h1(name='searcher')
+        | Search definition
       form(action='/', method='POST')
-        input(type='text', name='searchBar', placeholder='Word')
-        input(type='submit' name='searchButton' value='Search')
-    div(name='definition')
+        input(type='text', id='searchBar', name='searchBar', placeholder='Word')
+        input(type='submit' id='searchButton', name='searchButton' value='Search')
+    div(class='definition')
+      hr
       h1(name='word')= word
       each item in definitions
-        h4(class='definition')= "- " + item
+        h4(name='definition')= "- " + item

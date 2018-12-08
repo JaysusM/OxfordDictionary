@@ -1,8 +1,86 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  background: url(../images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-a {
-  color: #00B7FF;
+.searcher {
+  background-color: transparent;
+  left: 15px;
+  top: 15px;
+  position: absolute;
+  padding: 0px 20px;
+}
+
+.searcher h1 {
+  font-family: sans-serif;
+  font-weight: normal;
+  color: #3c9f00;
+  border-bottom: 2px solid #3c9f00;
+}
+
+.searcher input {
+  font-family: sans-serif;
+}
+
+#searchBar {
+  margin-right: 10px;
+  border: none;
+  border-bottom: 1px solid #3c9f00;
+  padding: 5px;
+  background-color: transparent;
+  color: black;
+}
+
+#searchButton {
+  border: 1px solid #3c9f00;
+  padding: 5px 10px;
+  background-color: transparent;
+  color: black;
+}
+
+#searchButton:hover {
+  background-color: #3c9f00;
+  color: white;
+}
+
+#searchBar:focus {
+  border-bottom: 2px solid #3c9f00;
+}
+
+.definition {
+  padding-left: 25px;
+  margin-top: 155px;
+  font-family: sans-serif;
+}
+
+.definition h1 {
+  font-weight: normal;
+}
+
+.definition h4 {
+  font-weight: normal;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: black;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: black;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: black;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: black;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: black;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color: black;
 }

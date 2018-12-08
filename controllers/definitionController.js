@@ -1,6 +1,4 @@
 const request = require('request');
-const app_id = '9465ff6d';
-const app_key = '2708151b4d5c268826dfeef8abac97f2';
 const api_base_url = 'https://od-api.oxforddictionaries.com/api/v1';
 const headers = {
   "Accept": "application/json",
@@ -26,9 +24,10 @@ module.exports = {
         for(var i =0; i < parsedDefinitions.length; i++) {
           definitionValues.push(parsedDefinitions[i].definitions[0]);
         }
+
         return res.render('index', {title: 'DefineIt! > ' + word, word: word, definitions: definitionValues});
       } catch (e) {
-        return res.redirect('back');
+        return res.render('index', {title: 'DefineIt!', word: 'Word was not found', definitions: []});
       }
       }
     );
